@@ -1,0 +1,142 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    
+}
+
+body {
+    background: linear-gradient(320deg, #030303, #272727, #1f1224);
+    background-size: 200% 200%;
+    background-position: 50% 50%;
+    transition: background-position 0.3s ease-out;
+    height: 100vh;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 50px; 
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.container {
+    flex: 1; 
+}
+
+.side-bars {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    background-color: #000000;
+    z-index: 1000;
+}
+.side-bar-left {
+    left: 0;
+}
+
+.side-bar-right {
+    right: 0;
+}
+
+.navbar {
+    background-color: #000000;
+    padding: 1rem;
+}
+
+
+.navbar h1 {
+    margin-left: 4rem;
+    margin-bottom: 0;
+}
+
+.navbar .subtitle {
+    font-size: 1rem;
+    color: #FFFFFF; 
+    margin-left: 4rem;
+    margin-top: 5px;
+}
+
+.navbar a.active {
+    color: #FB5012; 
+    font-style: italic;
+}
+
+.navbar a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.navbar a:hover {
+    color: #FFFFFF;
+}
+
+h1 {
+    color: #FB5012;
+    font-family: 'Playfair Display', serif;
+}
+
+h2 {
+    color: #519872;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.content-section {
+    opacity: 0; 
+    animation: fadeIn 2s ease-out forwards;
+    animation-delay: var(--delay, 0s);
+    margin-top: 5rem;
+    padding: 2rem;
+    text-align: left;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+}
+
+.row.g-4 > .col-md-4 {
+    padding: 15px; 
+}
+
+.content-wrapper {
+    border: 2px solid #FFFFFF;
+    flex: 1; 
+    padding: 20px; 
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+}
+
+.dark-mode-toggle {
+    margin-right: 4rem;
+}
+
+footer p {
+    margin-left: 4rem;
+}
+
+.dark-mode-toggle label {
+    color: #FFFFFF;
+    margin-left: 0.5rem;
+}

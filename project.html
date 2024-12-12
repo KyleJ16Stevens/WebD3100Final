@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyle Stevens - Web Programmer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="projectStyles.css">
+
+</head>
+<body>
+    <div class="side-bars side-bar-left"></div>
+    <div class="side-bars side-bar-right"></div>
+
+    <nav class="navbar">
+        <div>
+            <h1>Kyle Stevens</h1>
+            <p class="subtitle">Web Programmer</p>
+        </div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="project.html" class="active">Projects</a>
+        </div>
+    </nav>
+
+    <div class="content-wrapper">
+        <div class="container mt-5">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 project-card">
+                    <h2 class="project-title">Project Title</h2>
+                    <p class="project-info">Project info: These Projects will be added on over the next few weeks as I need to deploy them still.</p>
+                    <a href="" class="btn" target="_blank">Check it Out Yourself</a>
+                </div>
+                <div class="col-md-6 col-lg-4 project-card">
+                    <h2 class="project-title">Project Title</h2>
+                    <p class="project-info">Project info: what the project is, what it does, and what tech stack it uses, etc.</p>
+                    <a href="" class="btn" target="_blank">Check it Out Yourself</a>
+                </div>
+                <div class="col-md-6 col-lg-4 project-card">
+                    <h2 class="project-title">Project Title</h2>
+                    <p class="project-info">Project info: what the project is, what it does, and what tech stack it uses, etc.</p>
+                    <a href="" class="btn" target="_blank">Check it Out Yourself</a>
+                </div>
+                <div class="col-md-6 col-lg-4 project-card">
+                    <h2 class="project-title">Project Title</h2>
+                    <p class="project-info">Project info: what the project is, what it does, and what tech stack it uses, etc.</p>
+                    <a href="" class="btn" target="_blank">Check it Out Yourself</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; Kyle Stevens</p>
+        <div class="dark-mode-toggle">
+            <input type="radio" id="lightMode" name="mode" checked>
+            <label for="lightMode">Light Mode</label>
+            <input type="radio" id="darkMode" name="mode">
+            <label for="darkMode">Dark Mode</label>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll(".project-card");
+        sections.forEach((section, index) => {
+            section.style.setProperty("--delay", `${index * 0.5}s`); // Delay increases for each section
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener("mousemove", (event) => {
+            const { clientX, clientY } = event; //get mouse coordinates
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            //calculate percentages based on mouse position
+            const xPercent = (clientX / width) * 100; //range: 0% to 100%
+            const yPercent = (clientY / height) * 100;
+
+            console.log(`Mouse Coordinates: ${clientX}, ${clientY}`);
+            console.log(`Background Position: ${xPercent}% ${yPercent}%`);
+
+            //animate background position with GSAP
+            gsap.to("body", {
+                backgroundPosition: `${xPercent}% ${yPercent}%`,
+                duration: 0.3, //smooth transition
+                ease: "power1.out",
+            });
+        });
+    });
+</script>

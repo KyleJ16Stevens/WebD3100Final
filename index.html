@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyle Stevens - Web Programmer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="side-bars side-bar-left"></div>
+    <div class="side-bars side-bar-right"></div>
+
+    <nav class="navbar">
+        <div>
+            <h1>Kyle Stevens</h1>
+            <p class="subtitle">Web Programmer</p>
+        </div>
+        <div>
+            <a href="index.html" class="active">Home</a>
+            <a href="project.html">Projects</a>
+        </div>
+    </nav>
+
+    <div class="content-wrapper">
+        <div class="container mt-5">
+            <div class="row g-4">
+                <div class="col-md-4 content-section">
+                    <h2>Contact Info</h2>
+                    <p>Email: Kj16Stevens@gmail.com</p>
+                    <p>School Email: W0264937@nscc.ca</p>
+                    <p>Phone: 1-902-803-0448</p>
+                </div>
+                <div class="col-md-4 content-section">
+                    <h2>About me</h2>
+                    <p>Hi, I’m Kyle Stevens! I started my career as a welder, spending two years as a welding apprentice after graduating from a welding program. Following that, I worked at Michelin for two years, honing my skills and learning the value of precision and teamwork.
+
+                        While I enjoyed my time in the trades, I decided to pursue a new challenge and shifted my focus to web programming. I’m currently in my second year of studies, diving deep into the world of development and exploring my passion for technology.
+                        
+                        Outside of work and school, I love spending my free time fishing, gaming, and hanging out with friends. Whether it’s casting a line or tackling a new game, I’m always looking for the next adventure.</p>
+                </div>
+                <div class="col-md-4 content-section">
+                    <h2>Technical Specs</h2>
+                    <ul>
+                        <li>JavaScript</li>
+                        <br>
+                        <li>React</li>
+                        <br>
+                        <li>PHP (Laravel)</li>
+                        <br>
+                        <li>Html, CSS, Basic BootStrap</li>
+                        <br>
+                        <li>basic SQL, Basic Mongodb</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; Kyle Stevens</p>
+        <div class="dark-mode-toggle">
+            <input type="radio" id="lightMode" name="mode" checked>
+            <label for="lightMode">Light Mode</label>
+            <input type="radio" id="darkMode" name="mode">
+            <label for="darkMode">Dark Mode</label>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll(".content-section");
+        sections.forEach((section, index) => {
+            section.style.setProperty("--delay", `${index * 0.5}s`); //delay increases for each section
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener("mousemove", (event) => {
+            const { clientX, clientY } = event; //get mouse coordinates
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            //calculate percentages based on mouse position
+            const xPercent = (clientX / width) * 100; //range: 0% to 100%
+            const yPercent = (clientY / height) * 100;
+
+            console.log(`Mouse Coordinates: ${clientX}, ${clientY}`);
+            console.log(`Background Position: ${xPercent}% ${yPercent}%`);
+
+            //animate background position with GSAP
+            gsap.to("body", {
+                backgroundPosition: `${xPercent}% ${yPercent}%`,
+                duration: 0.3, //smooth transition
+                ease: "power1.out",
+            });
+        });
+    });
+</script>
